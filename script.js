@@ -53,44 +53,44 @@ hamburger.addEventListener("click", () => {
 
 
 
-const speakers = {
-    speaker_1 :{
+const speakers = [
+   {
         img : "statics/images/speaker_01.png",
         name : "Yohai Benkler",
         profession: "Professor, Harvard Law School",
         description: "Focusing on a common approach in a  networked environment, we created the concept of co-production based on open source software and sharing, such as Wikipedia."        
     },
-    speaker_2 :{
+    {
         img : "statics/images/speaker_02.png",
         name : "Yohai Benkler",
         profession: "Professor, Harvard Law School",
         description: "Focusing on a common approach in a  networked environment, we created the concept of co-production based on open source software and sharing, such as Wikipedia."        
     },
-    speaker_3 :{
+   {
         img : "statics/images/speaker_03.png",
         name : "Yohai Benkler",
         profession: "Professor, Harvard Law School",
         description: "Focusing on a common approach in a  networked environment, we created the concept of co-production based on open source software and sharing, such as Wikipedia."        
     },
-    speaker_4 :{
+   {
         img : "statics/images/speaker_04.png",
         name : "Yohai Benkler",
         profession: "Professor, Harvard Law School",
         description: "Focusing on a common approach in a  networked environment, we created the concept of co-production based on open source software and sharing, such as Wikipedia."        
     },
-    speaker_5 :{
+   {
         img : "statics/images/speaker_05.png",
         name : "Yohai Benkler",
         profession: "Professor, Harvard Law School",
         description: "Focusing on a common approach in a  networked environment, we created the concept of co-production based on open source software and sharing, such as Wikipedia."        
     },
-    speaker_6 :{
+    {
         img : "statics/images/speaker_06.png",
         name : "Yohai Benkler",
         profession: "Professor, Harvard Law School",
         description: "Focusing on a common approach in a  networked environment, we created the concept of co-production based on open source software and sharing, such as Wikipedia."        
     }
-}
+]
 
 const featureSpeakersWrap = document.createElement('div');
 featureSpeakersWrap.className = "feature_speakers_wrap";
@@ -136,12 +136,32 @@ featureSpeakers.appendChild(bar);
 const speakersList = document.createElement('div');
 speakersList.className ='speakers_list';
 propSpeakersList ={
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, 1fr)',
+        marginBottom: '20px',
+        marginTop: '50px',
+        flexWrap: 'wrap'
+
+}
+
+const mediaQuery = window.matchMedia("(min-width: 768px)");
+if (mediaQuery.matches) {
+
+Object.assign(speakersList.style,propSpeakersList)
 
 }
 featureSpeakers.appendChild(speakersList);
 
-const speaker = document.createElement('div');
-speaker.className ='speaker';
+speakers.forEach((spk,i)=> {
+console.log(mediaQuery.matches)
+let hide="";
+if (i>1 ) {
+    hide = 'hide-speaker';
+}
+
+let speaker = "speaker".concat(i);
+speaker = document.createElement('div');
+speaker.className ='speaker'.concat(" ",hide);
 propSpeaker = {
     display: 'grid',
     gridTemplateColumns: '35% 65%',
@@ -154,7 +174,7 @@ propSpeaker = {
 };
 
 Object.assign(speaker.style,propSpeaker);
-
+speaker
 const speakerImage = document.createElement('div');
 speakerImage.classname ="speaker_image";
 const img = document.createElement("img");
@@ -201,28 +221,18 @@ propSpeakerDescription ={
 Object.assign(speakerDescription.style,propSpeakerDescription)
 speaker.appendChild(speakerDescription)
 speakersList.append(speaker);
+speaker.childNodes[0].childNodes[0].setAttribute('src',spk.img);
+speaker.childNodes[0].childNodes[0].setAttribute('alt',spk.name);
+Object.assign(speaker.childNodes[0].childNodes[0].style,{objectFit:'cover',maxWidth:'100%',maxHeight:'35vh'});
+speaker.childNodes[1].innerHTML = spk.name;
+speaker.childNodes[2].innerHTML = spk.profession;
+speaker.childNodes[3].innerHTML = spk.description;
 
-const speakerClone =speaker.cloneNode(true);
-
-speakersList.append(speakerClone);
-
-const speaker1 = document.getElementsByClassName('speaker')[0];
-console.log(speaker1)
-const speaker2 = document.getElementsByClassName('speaker')[1];
-console.log(speaker1)
-speaker1.childNodes[0].childNodes[0].setAttribute('src',speakers['speaker_1'].img);
-speaker1.childNodes[0].childNodes[0].setAttribute('alt',speakers['speaker_1'].name);
-Object.assign(speaker1.childNodes[0].childNodes[0].style,{objectFit:'cover',maxWidth:'100%',maxHeight:'35vh'});
-speaker1.childNodes[1].innerHTML = speakers['speaker_1'].name;
-speaker1.childNodes[2].innerHTML = speakers['speaker_1'].profession;
-speaker1.childNodes[3].innerHTML = speakers['speaker_1'].description;
-
-speaker2.childNodes[0].childNodes[0].setAttribute('src',speakers['speaker_2'].img);
-speaker2.childNodes[0].childNodes[0].setAttribute('alt',speakers['speaker_2'].name);
-Object.assign(speaker2.childNodes[0].childNodes[0].style,{objectFit:'cover',maxWidth:'100%',maxHeight:'35vh'});
-speaker2.childNodes[1].innerHTML = speakers['speaker_2'].name;
-speaker2.childNodes[2].innerHTML = speakers['speaker_2'].profession;
-speaker2.childNodes[3].innerHTML = speakers['speaker_2'].description;
+})
 
 
+const hideElt = document.getElementsByClassName('hide-speaker')
+for (let i = 0; i < hideElt.length; i++) {
+    hideElt[i].style.display = "none";
+  }
 

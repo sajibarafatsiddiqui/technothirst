@@ -5,6 +5,9 @@ body {
   color: rgb(51, 51, 51);
 }
 
+.nav_link {
+  display: none;
+}
 .grid-wrapper {
   display: grid;
   grid-template-columns: repeat(12, 100px);

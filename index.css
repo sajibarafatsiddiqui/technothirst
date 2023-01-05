@@ -194,8 +194,6 @@ body {
     cursor: pointer;
 }
 
-.program_list {}
-
 @media screen and (min-width: 768px) {
 
     .toolbar {
@@ -339,5 +337,7 @@ body {
     .program_list .mobile {
         text-align: center;
     }
+
+    
 
 }

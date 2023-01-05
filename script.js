@@ -144,16 +144,10 @@ propSpeakersList ={
 
 }
 
-const mediaQuery = window.matchMedia("(min-width: 768px)");
-if (mediaQuery.matches) {
 
-Object.assign(speakersList.style,propSpeakersList)
-
-}
 featureSpeakers.appendChild(speakersList);
 
 speakers.forEach((spk,i)=> {
-console.log(mediaQuery.matches)
 let hide="";
 if (i>1 ) {
     hide = 'hide-speaker';
@@ -174,7 +168,6 @@ propSpeaker = {
 };
 
 Object.assign(speaker.style,propSpeaker);
-speaker
 const speakerImage = document.createElement('div');
 speakerImage.classname ="speaker_image";
 const img = document.createElement("img");
@@ -230,9 +223,22 @@ speaker.childNodes[3].innerHTML = spk.description;
 
 })
 
-
+const mediaQuery = window.matchMedia("(min-width: 768px)");
 const hideElt = document.getElementsByClassName('hide-speaker')
-for (let i = 0; i < hideElt.length; i++) {
-    hideElt[i].style.display = "none";
+
+function handleTabletChange(e) {
+  if (e.matches) {
+    Object.assign(speakersList.style,propSpeakersList)
+
+   
+  } else {
+    speakersList.removeAttribute('style')
+    for (let i = 0; i < hideElt.length; i++) {
+        hideElt[i].style.display = "none";
+      }
   }
+}
+handleTabletChange(mediaQuery)
+mediaQuery.addListener(handleTabletChange);
+
 

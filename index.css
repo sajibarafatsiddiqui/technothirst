@@ -480,6 +480,10 @@ body {
         flex: 0.2;
 
     }
+    
+    .features_list:hover{
+        border:2px solid #fff;
+    }
 
     .program_list .desktop {
         font-size: 1rem;

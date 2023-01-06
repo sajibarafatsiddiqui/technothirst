@@ -322,6 +322,13 @@ body {
   }
 }
 
+.about_logo {
+    width: 70vw;
+    height:40vh;
+    justify-self: center;
+    border: 2px solid #888
+}
+
 @media screen and (min-width: 768px) {
   .toolbar {
     max-height: 20vh;

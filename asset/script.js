@@ -267,11 +267,3 @@ const handleMediaChange = (e) =>  {
 }
 handleMediaChange(mediaQuery)
 mediaQuery.addEventListener("change",handleMediaChange)
-// handleTabletChange(mediaQuery)
-// mediaQuery.addEventListener('change', handleTabletChange)
-// // mediaQuery.addListener(handleTabletChange);
-// if ('addEventListener' in mediaQuery) {
-//   mediaQuery.addEventListener('change', handleTabletChange)
-//  } else if ('addListener' in mediaQuery) {
-//   mediaQuery.addListener(handleTabletChange)
-//  }

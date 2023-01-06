@@ -222,24 +222,10 @@ Object.assign(speaker.childNodes[0].childNodes[0].style,{objectFit:'cover',maxWi
 speaker.childNodes[1].innerHTML = spk.name;
 speaker.childNodes[2].innerHTML = spk.profession;
 speaker.childNodes[3].innerHTML = spk.description;
-
 })
 
-const mediaQuery = window.matchMedia("(min-width: 768px)");
-const hideElt = document.querySelectorAll('.speaker:nth-child(n+3)')
-function handleTabletChange(e) {
-  if (e.matches) {
-    Object.assign(speakersList.style,propSpeakersList)
-    for (let i = 0; i < hideElt.length; i++) {
-      hideElt[i].style.display = "grid";
-    }
 
-  } else {
-    speakersList.removeAttribute('style')
-    for (let i = 0; i < hideElt.length; i++) {
-        hideElt[i].style.display = "none";
-      }
-    const btnContainer = document.createElement("div");
+const btnContainer = document.createElement("div");
     btnContainer.className = "more";
     const propBtnContainer = {
         display: 'flex',
@@ -260,14 +246,32 @@ function handleTabletChange(e) {
     btnContainer.append(btn)
     btn.innerHTML="<span>MORE</span><i class='fa fa-chevron-down'></i> "
     Object.assign(btn.style,propButton)
-    speakersList.append(btn)
+    speakersList.append(btnContainer)
+const mediaQuery = window.matchMedia("(min-width: 768px)");
+const hideElt = document.querySelectorAll('.speaker:nth-child(n+3)')
+
+const handleMediaChange = (e) =>  {
+  if (e.matches) {
+    Object.assign(speakersList.style,propSpeakersList)
+    for (let i = 0; i < hideElt.length; i++) {
+      hideElt[i].style.display = "grid";
+    }
+
+  } else {
+    speakersList.removeAttribute('style')
+    for (let i = 0; i < hideElt.length; i++) {
+        hideElt[i].style.display = "none";
+      }
+    
   }
 }
-handleTabletChange(mediaQuery)
-mediaQuery.addEventListener('change', handleTabletChange)
-// mediaQuery.addListener(handleTabletChange);
-if ('addEventListener' in mediaQuery) {
-  mediaQuery.addEventListener('change', handleTabletChange)
- } else if ('addListener' in mediaQuery) {
-  mediaQuery.addListener(handleTabletChange)
- }
+handleMediaChange(mediaQuery)
+mediaQuery.addEventListener("change",handleMediaChange)
+// handleTabletChange(mediaQuery)
+// mediaQuery.addEventListener('change', handleTabletChange)
+// // mediaQuery.addListener(handleTabletChange);
+// if ('addEventListener' in mediaQuery) {
+//   mediaQuery.addEventListener('change', handleTabletChange)
+//  } else if ('addListener' in mediaQuery) {
+//   mediaQuery.addListener(handleTabletChange)
+//  }

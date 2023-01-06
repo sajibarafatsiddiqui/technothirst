@@ -73,7 +73,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/sajibarafatsiddiqui/Finish_Mobile_Version_Portfolio.git
+  git clone https://github.com/sajibarafatsiddiqui/technothirst.git
 ```
 --->
 

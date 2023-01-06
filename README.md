@@ -84,7 +84,6 @@ Install this project with:
 
   cd my-project
   click on index.html
-```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

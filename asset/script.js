@@ -118,7 +118,9 @@ title.className = 'normal';
 const propTitle = {
   fontSize: '1.5rem',
   display: 'block',
-  fontWeight: 'normal',
+  fontWeight: 'bold',
+  padding: '0',
+  margin: '0'
 };
 
 Object.assign(title.style, propTitle);
@@ -130,7 +132,7 @@ const propBar = {
   width: '4.5rem',
   height: '1rem',
   borderBottom: '1px solid rgb(239, 81, 60)',
-  margin: '0px auto 54px',
+  margin: '0px auto 2rem',
 };
 Object.assign(bar.style, propBar);
 featureSpeakers.appendChild(bar);
@@ -158,7 +160,7 @@ speakers.forEach((spk, i) => {
     gridTemplateRows: '5% 20% 75%',
     gridTemplateAreas: '"img name" "img profession" "img description"',
     height: '40vh',
-    padding: '1.5rem',
+    padding: '0 1rem'
   };
 
   Object.assign(speaker.style, propSpeaker);

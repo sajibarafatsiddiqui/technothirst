@@ -3,20 +3,22 @@ const hamburger = document.querySelector(".mobile_menu");
 hamburger.addEventListener("click", () => {
   const div = document.createElement("div");
   const img = document.createElement("img");
-  const links = document.querySelector(".nav_link");
-  const home = document.querySelector(".grid-wrapper");
+  const links = document.getElementsByClassName("nav_link")[0];
+  
+  const home = document.getElementsByClassName("grid-wrapper")[0];
+  console.log(home)
   const divContainer = document.createElement("div");
   const linksChilds = Array.from(links.children);
   const property = {
     color: "#fff",
     fontSize: "32px",
-    fontFamily: '"Poppins", sans-serif',
-    fontWeight: "600px",
+    fontFamily: '"Lato", sans-serif',
+    fontWeight: "bold",
     lineHeight: "44px",
     textDecoration: "none",
   };
 
-  divContainer.style.backgroundColor = "#6070FF";
+  divContainer.style.backgroundColor = "rgba(39,42,49,0.7)";
   img.src = "statics/images/Toolbar.png";
   img.style.float = "right";
   img.style.marginRight = "1rem";
@@ -56,39 +58,39 @@ hamburger.addEventListener("click", () => {
 const speakers = [
    {
         img : "statics/images/speaker_01.png",
-        name : "Yohai Benkler",
-        profession: "Professor, Harvard Law School",
-        description: "Focusing on a common approach in a  networked environment, we created the concept of co-production based on open source software and sharing, such as Wikipedia."        
+        name : "Andy Jassy",
+        profession: "CEO,Amazon",
+        description: "Andy Jassy is President and CEO of Amazon.com and also serves on the Board of Directors. He founded and led Amazon Web Services (AWS) from its inception and served as its CEO from April 2016 until July 2021."        
     },
     {
         img : "statics/images/speaker_02.png",
-        name : "Yohai Benkler",
-        profession: "Professor, Harvard Law School",
-        description: "Focusing on a common approach in a  networked environment, we created the concept of co-production based on open source software and sharing, such as Wikipedia."        
+        name : "Peter Kern",
+        profession: "CEO,Expedia",
+        description: "Peter Kern is the Vice Chairman and Chief Executive Officer of Expedia Group. Mr. Kern has been a director of Expedia Group since completion of the IAC/Expedia Group Spin-Off and has served as Vice Chairman of Expedia Group since June 2018."        
     },
    {
         img : "statics/images/speaker_03.png",
-        name : "Yohai Benkler",
-        profession: "Professor, Harvard Law School",
-        description: "Focusing on a common approach in a  networked environment, we created the concept of co-production based on open source software and sharing, such as Wikipedia."        
+        name : "Tekedra N. Mawakana",
+        profession: "Co-CEO,Waymo",
+        description: "Tekedra N. Mawakana is the co-CEO of Waymo, an autonomous driving technology company with a mission to make it safe and easy for people and things to get where they’re going."        
     },
    {
         img : "statics/images/speaker_04.png",
-        name : "Yohai Benkler",
-        profession: "Professor, Harvard Law School",
-        description: "Focusing on a common approach in a  networked environment, we created the concept of co-production based on open source software and sharing, such as Wikipedia."        
+        name : "Michelle Bailhe",
+        profession: "Partner,Sequoia Capital",
+        description: "Michelle is a Partner at Sequoia investing in crypto, software and internet. She works with companies including FTX, Fireblocks and Pilot. Prior to Sequoia, Michelle worked at Hellman & Friedman, Google, and McKinsey & Company."        
     },
    {
         img : "statics/images/speaker_05.png",
-        name : "Yohai Benkler",
-        profession: "Professor, Harvard Law School",
-        description: "Focusing on a common approach in a  networked environment, we created the concept of co-production based on open source software and sharing, such as Wikipedia."        
+        name : "Jennifer Bisceglie",
+        profession: "CEO,Interos",
+        description: "Jennifer Bisceglie is the founder and CEO of Interos, the dynamic supply chain risk management and operational resilience company.Jennifer and Interos have disrupted the traditional supply chain risk management discipline, bringing 24x7 real-time visibility into every supplier at every tier and at every location around the world."        
     },
     {
         img : "statics/images/speaker_06.png",
-        name : "Yohai Benkler",
-        profession: "Professor, Harvard Law School",
-        description: "Focusing on a common approach in a  networked environment, we created the concept of co-production based on open source software and sharing, such as Wikipedia."        
+        name : "Michael Miebach",
+        profession: "CEO,Mastercard",
+        description: "Michael Miebach is chief executive officer of Mastercard and a member of the company’s board of directors.He is leading the company into a more digital world where Mastercard powers economies and empowers people by harnessing innovation and the continued application of new technologies."        
     }
 ]
 
@@ -148,14 +150,14 @@ propSpeakersList ={
 featureSpeakers.appendChild(speakersList);
 
 speakers.forEach((spk,i)=> {
-let hide="";
-if (i>1 ) {
-    hide = 'hide-speaker';
-}
+// let hide="";
+// if (i>1 ) {
+//     hide = 'hide-speaker';
+// }
 
 let speaker = "speaker".concat(i);
 speaker = document.createElement('div');
-speaker.className ='speaker'.concat(" ",hide);
+speaker.className ='speaker';
 propSpeaker = {
     display: 'grid',
     gridTemplateColumns: '35% 65%',
@@ -224,21 +226,48 @@ speaker.childNodes[3].innerHTML = spk.description;
 })
 
 const mediaQuery = window.matchMedia("(min-width: 768px)");
-const hideElt = document.getElementsByClassName('hide-speaker')
-
+const hideElt = document.querySelectorAll('.speaker:nth-child(n+3)')
 function handleTabletChange(e) {
   if (e.matches) {
     Object.assign(speakersList.style,propSpeakersList)
+    for (let i = 0; i < hideElt.length; i++) {
+      hideElt[i].style.display = "grid";
+    }
 
-   
   } else {
     speakersList.removeAttribute('style')
     for (let i = 0; i < hideElt.length; i++) {
         hideElt[i].style.display = "none";
       }
+    const btnContainer = document.createElement("div");
+    btnContainer.className = "more";
+    const propBtnContainer = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center', 
+        padding: '40px 50px',
+        
+
+    }
+    const btn = document.createElement("button");
+    btn.className ="btn";
+    propButton ={
+      width: '80vw',
+      height:'3rem',
+      background:'#fff',
+      marginBottom:"4rem"
+    }
+    btnContainer.append(btn)
+    btn.innerHTML="<span>MORE</span><i class='fa fa-chevron-down'></i> "
+    Object.assign(btn.style,propButton)
+    speakersList.append(btn)
   }
 }
 handleTabletChange(mediaQuery)
-mediaQuery.addListener(handleTabletChange);
-
-
+mediaQuery.addEventListener('change', handleTabletChange)
+// mediaQuery.addListener(handleTabletChange);
+if ('addEventListener' in mediaQuery) {
+  mediaQuery.addEventListener('change', handleTabletChange)
+ } else if ('addListener' in mediaQuery) {
+  mediaQuery.addListener(handleTabletChange)
+ }

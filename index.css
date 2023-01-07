@@ -285,7 +285,6 @@ body {
   align-items: center;
   padding: 0;
   gap: 2rem;
-  width: 100vw;
   height: 15vh;
 }
 
@@ -573,7 +572,6 @@ body {
     align-items: center;
     padding: 1rem;
     gap: 2rem;
-    width: 100vw;
     background: #272a31;
     height: 15vh;
   }

@@ -142,8 +142,7 @@ speakersList.className = 'speakers_list';
 const propSpeakersList = {
   display: 'grid',
   gridTemplateColumns: 'repeat(2, 1fr)',
-  marginBottom: '20px',
-  marginTop: '50px',
+  margin: '50px auto 20px',
   flexWrap: 'wrap',
 };
 
@@ -160,7 +159,7 @@ speakers.forEach((spk, i) => {
     gridTemplateRows: '5% 20% 75%',
     gridTemplateAreas: '"img name" "img profession" "img description"',
     height: '40vh',
-    padding: '0 1rem'
+    padding: '0 2rem'
   };
 
   Object.assign(speaker.style, propSpeaker);

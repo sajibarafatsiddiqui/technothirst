@@ -120,7 +120,7 @@ const propTitle = {
   display: 'block',
   fontWeight: 'bold',
   padding: '0',
-  margin: '0'
+  margin: '0',
 };
 
 Object.assign(title.style, propTitle);
@@ -159,7 +159,7 @@ speakers.forEach((spk, i) => {
     gridTemplateRows: '5% 20% 75%',
     gridTemplateAreas: '"img name" "img profession" "img description"',
     height: '40vh',
-    padding: '0 2rem'
+    padding: '0 2rem',
   };
 
   Object.assign(speaker.style, propSpeaker);

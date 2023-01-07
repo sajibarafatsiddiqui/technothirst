@@ -231,14 +231,13 @@ body {
 }
 
 .partners_mobile {
-    background-color: #272a31;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
+  background-color: #272a31;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
 .partnerText {
   color: #949494;
@@ -365,7 +364,7 @@ body {
   width: 70vw;
   height: 40vh;
   justify-self: center;
-  padding:2rem 0;
+  padding: 2rem 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -548,9 +547,9 @@ body {
     display: none;
   }
 
-.event_description {
+  .event_description {
     white-space: pre-line;
-}
+  }
 
   .about_logo {
     width: 35vw;

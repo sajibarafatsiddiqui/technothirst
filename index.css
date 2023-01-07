@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@400;700&display=swap");
 
 body {
   margin: 0;
@@ -29,7 +29,11 @@ body {
 .feature_speakers_wrap,
 .aboutEvent,
 .secSectionAbout,
-.footer {
+.partners,
+.footer,
+.footer_about,
+.footer_mobile,
+.partners_mobile {
   grid-column: 1 / -1;
 }
 
@@ -139,9 +143,9 @@ body {
 
 .guide_bar {
   width: 53px;
-  height: 16px;
+  height: 5px;
   border-bottom: 1px solid rgb(239, 81, 60);
-  margin: 0 auto 24px;
+  margin: 0 auto 1.5rem;
   transition: width 0.5s ease, margin 0.5s ease;
 }
 
@@ -209,6 +213,8 @@ body {
 }
 
 .secSectionAbout {
+  display: flex;
+  flex-direction: column;
   color: #272a31;
   align-content: center;
   align-items: center;
@@ -224,16 +230,27 @@ body {
   flex-direction: column;
 }
 
+.partners_mobile {
+    background-color: #272a31;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+
 .partnerText {
   color: #949494;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
+  margin: 2rem auto 0;
 }
 
 .partners .guide_bar {
   width: 53px;
-  height: 16px;
+  height: 3px;
   border-bottom: 1px solid rgb(239, 81, 60);
-  margin: 2px 0;
+  margin-bottom: 2rem;
 }
 
 .partnerLogos {
@@ -244,12 +261,21 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #272a31;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .logoImg {
   display: flex;
   width: 25vw;
-  margin: 10px;
+}
+
+.imgTextabt {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 3rem;
 }
 
 .footer {
@@ -276,6 +302,21 @@ body {
   font-weight: bold;
 }
 
+.footer_about {
+  display: none;
+}
+
+.footer_mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  gap: 2rem;
+  width: 100vw;
+  height: 15vh;
+}
+
 .event_wrapper {
   display: flex;
   flex-direction: column;
@@ -290,13 +331,12 @@ body {
 }
 
 .event_description {
-  white-space: pre-line;
   word-break: normal;
   background-color: inherit;
   border: none;
   color: inherit;
   padding: 0;
-  padding: 1em 0.5em;
+  padding: 0 0.5em 1em;
   line-height: 150%;
   font-size: 1rem;
 }
@@ -323,10 +363,10 @@ body {
 }
 
 .about_logo {
-    width: 70vw;
-    height:40vh;
-    justify-self: center;
-    border: 2px solid #888
+  width: 70vw;
+  height: 40vh;
+  justify-self: center;
+  padding:2rem 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -495,8 +535,10 @@ body {
 
   .imgTextabt {
     display: flex;
-    gap: 0.3rem;
+    flex-direction: row;
+    gap: 2rem;
     justify-content: center;
+    margin-bottom: 3rem;
   }
 
   .more {
@@ -504,6 +546,57 @@ body {
   }
 
   .mobile {
+    display: none;
+  }
+
+.event_description {
+    white-space: pre-line;
+}
+
+  .about_logo {
+    width: 35vw;
+    height: 30vh;
+    justify-self: center;
+    border: 2px solid #888;
+    padding: 0;
+  }
+
+  .logoImg {
+    width: 10vw;
+    column-gap: 0.3rem;
+  }
+
+  .footer_about {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 2rem;
+    width: 100vw;
+    background: #272a31;
+    height: 15vh;
+  }
+
+  .footer_logo_about {
+    background: url("statics/images/logo_cck_w_208x35.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30vw;
+    height: 10vh;
+  }
+
+  .footer_text {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .footer_mobile {
+    display: none;
+  }
+
+  .partners_mobile {
     display: none;
   }
 }

@@ -497,7 +497,7 @@ body {
 
   .features_list_container {
     display: flex;
-    margin: 2rem 8rem;
+    margin: 2rem 4rem;
     gap: 2px;
     justify-content: flex-start;
     align-items: center;
